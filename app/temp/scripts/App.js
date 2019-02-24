@@ -11350,6 +11350,7 @@ function () {
   function StickyHeader() {
     _classCallCheck(this, StickyHeader);
 
+    this.lazyImages = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".lazyload");
     this.siteHeader = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".site-header");
     this.headerTriggerElement = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".large-hero__title");
     this.createHeaderWaypoint();
@@ -11357,9 +11358,17 @@ function () {
     this.headerLinks = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".primary-nav a");
     this.createPageSectionWaypoints();
     this.addSmoothScrooling();
+    this.refreshWaypoints();
   }
 
   _createClass(StickyHeader, [{
+    key: "refreshWaypoints",
+    value: function refreshWaypoints() {
+      this.lazyImages.on('load', function () {
+        Waypoint.refreshAll();
+      });
+    }
+  }, {
     key: "addSmoothScrooling",
     value: function addSmoothScrooling() {
       this.headerLinks.smoothScroll();
