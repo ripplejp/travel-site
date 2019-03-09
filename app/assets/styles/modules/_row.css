@@ -49,7 +49,7 @@
             width: 37%;
 
         }
-    
+        
         &__medium-8 {
             float: left;
             width: 66.66%;
@@ -97,25 +97,28 @@
         }
     }
 
-    &--equal-height-at-large {
-        @add-mixin atLarge  {
-            display: flex;
+    /* Begin Equal Height Rules */
+    .flexbox &--equal-height-at-medium {
+        @mixin atMedium {
+          display: flex;
         }
-
+    
         & > div {
-            float: none;
-            display: flex;
+          float: none;
+          display: flex;
         }
+    
     }
 
-    &--equal-height-at-medium {
-        @add-mixin atMedium  {
-            display: flex;
+    .flexbox &--equal-height-at-large {
+        @mixin atLarge {
+          display: flex;
         }
-
+    
         & > div {
-            float: none;
-            display: flex;
+          float: none;
+          display: flex;
         }
-    }
+    
+      }
 }
